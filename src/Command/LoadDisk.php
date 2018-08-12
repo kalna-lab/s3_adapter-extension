@@ -111,7 +111,7 @@ class LoadDisk
                 $prefix
             ),
             [
-                'base_url' => $client->getObjectUrl($bucket, $prefix),
+                'base_url' => $client->getObjectUrl($bucket, $prefix ?: null),
             ]
         );
 
