@@ -32,9 +32,9 @@ return [
         'type'     => 'anomaly.field_type.text',
     ],
     'prefix'     => [
-        'type'   => 'anomaly.field_type.boolean',
+        'type'   => 'anomaly.field_type.slug',
         'config' => [
-            'default_value' => true,
+            'type' => '-',
         ],
     ],
 ];

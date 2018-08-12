@@ -18,8 +18,7 @@ return [
         'instructions' => 'Enter your S3 bucket name.',
     ],
     'prefix'     => [
-        'label'        => 'Use disk slug as prefix?',
-        'instructions' => 'If disabled, the bucket\'s root directory will be used.',
-        'warning'      => 'Disabling may cause file collisions if the same bucket is used for multiple disks.',
+        'label'        => 'Prefix',
+        'instructions' => 'Prefixes are useful for disks that share a single S3 bucket.<br><strong>https://{region}.amazonaws.com/{bucket}/{prefix}/{folder}/{filename}</strong>',
     ],
 ];

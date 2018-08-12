@@ -66,11 +66,8 @@ class LoadDisk
 
         $prefix = $configuration->value(
             'anomaly.extension.s3_adapter::prefix',
-            $this->disk->getSlug(),
-            true
+            $this->disk->getSlug()
         );
-
-        $prefix = $prefix ? $this->disk->getSlug() : '';
 
         $region = $configuration->get(
             'anomaly.extension.s3_adapter::region',
@@ -111,7 +108,13 @@ class LoadDisk
                 $prefix
             ),
             [
-                'base_url' => $client->getObjectUrl($bucket, $prefix ?: null),
+                'base_url' => 'https://s3.'
+                    . $region
+                    . '.amazonaws.com/'
+                    . implode(
+                        '/',
+                        array_filter([$bucket, $prefix])
+                    ),
             ]
         );
 
