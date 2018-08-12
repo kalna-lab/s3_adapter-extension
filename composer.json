@@ -1,0 +1,19 @@
+{
+    "name": "anomaly/s3_adapter-extension",
+    "type": "streams-addon",
+    "description": "An Amazon S3 adapter for the Files module.",
+    "authors": [
+        {
+            "name": "AnomalyLabs",
+            "email": "hello@anomaly.is"
+        }
+    ],
+    "require": {
+        "league/flysystem-aws-s3-v3": "^1.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\S3AdapterExtension\\": "src/"
+        }
+    }
+}
