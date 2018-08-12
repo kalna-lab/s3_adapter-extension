@@ -120,11 +120,11 @@ class LoadDisk
 
         $manager->mountFilesystem($this->disk->getSlug(), $driver);
 
-//        $filesystem->extend(
-//            $this->disk->getSlug(),
-//            function () use ($driver) {
-//                return $driver;
-//            }
-//        );
+        $filesystem->extend(
+            $this->disk->getSlug(),
+            function () use ($driver) {
+                return $driver;
+            }
+        );
     }
 }
