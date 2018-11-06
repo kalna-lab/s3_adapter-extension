@@ -31,10 +31,5 @@ return [
         'required' => true,
         'type'     => 'anomaly.field_type.text',
     ],
-    'prefix'     => [
-        'type'   => 'anomaly.field_type.slug',
-        'config' => [
-            'type' => '-',
-        ],
-    ],
+    'prefix'     => 'anomaly.field_type.text',
 ];
