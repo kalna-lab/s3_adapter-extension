@@ -69,13 +69,18 @@ class LoadDisk
             $this->disk->getSlug()
         );
 
+        $cloudFront = $configuration->value(
+            'anomaly.extension.s3_adapter::cloud_front',
+            $this->disk->getSlug()
+        );
+
+        $bucket = $configuration->value(
+            'anomaly.extension.s3_adapter::bucket',
+            $this->disk->getSlug()
+        );
+
         $region = $configuration->get(
             'anomaly.extension.s3_adapter::region',
-            $this->disk->getSlug()
-        )->getValue();
-
-        $bucket = $configuration->get(
-            'anomaly.extension.s3_adapter::bucket',
             $this->disk->getSlug()
         )->getValue();
 
@@ -90,6 +95,18 @@ class LoadDisk
                 'prefix' => $prefix,
             ]
         );
+
+        $baseUrl = 'https://s3.'
+            . $region
+            . '.amazonaws.com/'
+            . implode(
+                '/',
+                array_filter([$bucket, $prefix])
+            );
+
+        if ($cloudFront) {
+            $baseUrl = trim($cloudFront, '/') . '/' . implode('/', array_filter([$prefix]));
+        }
 
         $driver = new AdapterFilesystem(
             $this->disk,
@@ -108,13 +125,7 @@ class LoadDisk
                 $prefix
             ),
             [
-                'base_url' => 'https://s3.'
-                    . $region
-                    . '.amazonaws.com/'
-                    . implode(
-                        '/',
-                        array_filter([$bucket, $prefix])
-                    ),
+                'base_url' => $baseUrl,
             ]
         );
 
