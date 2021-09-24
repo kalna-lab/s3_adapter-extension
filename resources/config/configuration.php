@@ -20,6 +20,7 @@ return [
                 'us-west-2'      => 'US West (Oregon)',
                 'eu-central-1'   => 'EU (Frankfurt)',
                 'eu-west-1'      => 'EU (Ireland)',
+                'eu-west-2'      => 'EU (London)',
                 'ap-northeast-1' => 'Asia Pacific (Tokyo)',
                 'ap-southeast-1' => 'Asia Pacific (Singapore)',
                 'ap-southeast-2' => 'Asia Pacific (Sydney)',
